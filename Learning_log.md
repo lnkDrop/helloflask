@@ -63,3 +63,6 @@
     ### 此时会返回Hello,Programmer
 
 ### 三、启动开发服务器
+```
+flask run
+```
