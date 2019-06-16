@@ -21,3 +21,45 @@
 2. **CSS** (简化编写样式的操作)---------表现层(使用框架:[Bootstrap](https://getbootstrap.com))
 3. **JavaScript**(触发器，动画效果) -------行为层(使用库:[jQuery](https://jquery.com/))
 
+### 二、hello flask
+* 项目目录中创建并运行虚拟环境
+  ``` 
+  pipenv install 
+  pipenv shell
+   ```
+* 虚拟环境中安装Flask
+  ```
+  pipenv install flask
+  ```
+* 实例app
+  ```
+  app=Flask(__name__)
+  ```
+    ### 注册路由,/根目录，url规则(指向某个资源的地址)
+  ```
+  www./(根)/x(绝对地址)
+  ```
+  ```
+  @实例.route('/')
+  ```
+  ### 绑定多个URL(访问hi和hello这两个url，返回同一视图)
+  ```
+  @app.route('/hi')
+  ```
+  ```
+  @app.route('/hello')
+  ```
+  ### 动态URL(hi/(name)),name可以是变量，可以进行动态访问,访问的视图随着name的变化而变化
+  ```
+  @app.route('/hi/<name>')
+  ```
+  ### 为防止404错误，在route(hi/name)里设置变量默认值
+  ```
+  @app.route('/hi', defaults={'name': 'Programmer'})
+  @app.route('/hi/<name>')
+  def hi(name):
+    return '<h1>Hello, %s!</h1>' % name
+  ```
+    ### 此时会返回Hello,Programmer
+
+### 三、启动开发服务器
